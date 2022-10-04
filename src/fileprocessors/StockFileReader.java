@@ -1,6 +1,7 @@
 package fileprocessors;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,8 +25,7 @@ public class StockFileReader {
 	}
 	
 	static String readFirstLine(String path) throws IOException {
-	    try (BufferedReader br =
-	                   new BufferedReader(new FileReader(path))) {
+	    try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 	        return br.readLine();
 	    }
 	}
@@ -36,7 +36,17 @@ public class StockFileReader {
 	 */
 	public List<String> readFileData() throws IOException{
 		List<String> lines = new ArrayList<String>();
-		// Insert your code here..
+		//try with resources
+		try (BufferedReader br = new BufferedReader(new FileReader(this.filePath))) {
+			//skip the first line
+			br.readLine();
+			String line = null;
+			
+			while((line = br.readLine()) != null){
+				lines.add(line);
+	       }
+	    }
+				
 	    return lines;
 	}
 	
