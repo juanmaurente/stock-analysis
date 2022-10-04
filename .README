@@ -2,3 +2,12 @@ This repository is part of the The Complete Java Certification Course from Udemy
 
 The main idea of this project is to put practical concepts of Collections, by completing the method body of pupulateStockFileData, and also readFileData.
 
+### readFileData()
+* Before complie - Frist Approach *
+readFileData() should return a List<String>, after read data from a csv file provided containing AAPL market data. My approach for this method was to create a BufferReader and its method readLine(). Then while readLine() is not null iterate over the lines, add the line to my list and use readLine() as modifier to jump to the same line.
+
+** Result of first approach, and modifications **
+
+### populateStockFileData()
+* Before complie - Frist Approach *
+populateStockFileData() a List<HashMap<String, Double>> by calling getHeaders and readFileData
